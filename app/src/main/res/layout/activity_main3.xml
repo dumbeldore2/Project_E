@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity3"
-    android:background="@drawable/background_list">
+    android:background="@drawable/backgroundnormal">
 
     <TextView
         android:id="@+id/text1"
@@ -20,6 +20,36 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
+        android:id="@+id/text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textColor="@color/color_2_light"
+        android:textSize="96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/text2"
+        android:layout_marginBottom="-100dp"
+        android:background="@drawable/backgroundma3part3"
+        android:gravity="bottom"
+        android:paddingLeft="50dp"
+        android:paddingBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textColor="@color/color_2_light"
+        android:textSize="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/text2"
+        android:layout_marginBottom="-100dp"
+        android:background="@drawable/backgroundma3part3"
+        android:gravity="bottom"
+        android:paddingLeft="90dp"
+        android:paddingBottom="20dp"/>
+
+    <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,8 +57,9 @@
         android:textSize="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/background_list3_part2"
+        android:background="@drawable/backgroundma3part2"
         android:layout_marginTop="200dp"
+        android:layout_marginLeft="5dp"
         android:rotation="45"/>
 
     <TextView
@@ -42,20 +73,6 @@
         app:layout_constraintTop_toTopOf="@id/text2"
         app:layout_constraintBottom_toBottomOf="@id/text2"
         android:gravity="center"/>
-    <TextView
-        android:id="@+id/text4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:textColor="@color/color_2_light"
-        android:textSize="96dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/text2"
-        android:layout_marginBottom="-100dp"
-        android:background="@drawable/background_list3_part3"
-        android:gravity="bottom"
-        android:paddingLeft="50dp"
-        android:paddingBottom="20dp"/>
 
 
 

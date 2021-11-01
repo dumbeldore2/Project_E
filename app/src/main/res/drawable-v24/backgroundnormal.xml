@@ -2,6 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <item android:drawable="@drawable/background"/>
-    <item android:drawable="@drawable/gradiant_top"/>
-    <item android:drawable="@drawable/gradiant_bot"/>
+    <item android:drawable="@drawable/gradianttop"/>
+    <item android:drawable="@drawable/gradiantbot"/>
 </layer-list>

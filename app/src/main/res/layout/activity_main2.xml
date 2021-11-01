@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity2"
-    android:background="@drawable/background_list">
+    android:background="@drawable/backgroundnormal">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_marginTop="20dp"/>
     
     <LinearLayout
-        android:background="@drawable/background_list2"
+        android:background="@drawable/backgroundma2"
         android:layout_width="350dp"
         android:layout_height="600dp"
         app:layout_constraintStart_toStartOf="parent"
