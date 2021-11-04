@@ -20,7 +20,7 @@ public class MainActivity2 extends AppCompatActivity {
     ListView listView;
 
     //random arraylist, dit zijn allelmaal defaults
-    String[] strings = new String[8];
+    String[] strings = new String[1];
 
     //adapter initen
     MainActivity2_list mainActivity2_list;
@@ -38,14 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.color_1_dark));
 
         //strings conecte
-        strings[0] = "default 1";
-        strings[1] = "default 1";
-        strings[2] = "default 1";
-        strings[3] = "default 1";
-        strings[4] = "default 1";
-        strings[5] = "default 1";
-        strings[6] = "default 1";
-        strings[7] = "add";
+        strings[0] = "add";
 
 
         //contecten
