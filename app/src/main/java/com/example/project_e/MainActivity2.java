@@ -45,7 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
         strings[4] = "default 1";
         strings[5] = "default 1";
         strings[6] = "default 1";
-        strings[7] = "default 1";
+        strings[7] = "add";
 
 
         //contecten
@@ -65,8 +65,13 @@ public class MainActivity2 extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity3.class);
-                startActivity(intent);
+                if (position == strings.length - 1){
+                    Intent intent = new Intent(getApplicationContext(),MainActivity4.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(getApplicationContext(),MainActivity3.class);
+                    startActivity(intent);
+                }
             }
         });
     }
