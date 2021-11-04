@@ -39,6 +39,9 @@ public class MainActivity4 extends AppCompatActivity {
         //edittext conecten
         editText1 = findViewById(R.id.editText1);
 
+        //database conecten
+        database = new Database(this);
+
         //functies
         clickAdd();
     }

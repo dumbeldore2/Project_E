@@ -20,10 +20,14 @@ public class MainActivity2 extends AppCompatActivity {
     ListView listView;
 
     //random arraylist, dit zijn allelmaal defaults
-    String[] strings = new String[1];
+    String[] strings = {};
+    String[] strings2 = {};
 
     //adapter initen
     MainActivity2_list mainActivity2_list;
+
+    //Database initen
+    Database database;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -37,28 +41,23 @@ public class MainActivity2 extends AppCompatActivity {
         getWindow().setNavigationBarColor(getResources().getColor(R.color.color_2_light));
         getWindow().setStatusBarColor(getResources().getColor(R.color.color_1_dark));
 
-        //strings conecte
-        strings[0] = "add";
-
-
         //contecten
-        mainActivity2_list = new MainActivity2_list(this,strings);
         listView = findViewById(R.id.listview);
 
+        //conecten van de database
+        database = new Database(this);
 
-
-        //arraylist adapteren
-        listView.setAdapter(mainActivity2_list);
 
         //funties callen
         click_fun();
+        addToListview();
     }
 
     public void click_fun(){
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == strings.length - 1){
+                if (position == strings2.length - 1){
                     Intent intent = new Intent(getApplicationContext(),MainActivity4.class);
                     startActivity(intent);
                 } else {
@@ -67,5 +66,33 @@ public class MainActivity2 extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void addToListview(){
+        if (database.namen().length != 0){
+            strings = database.namen().clone();
+            System.out.println(strings.length);
+
+            strings2 = new String[strings.length + 1];
+            System.out.println(strings2.length);
+
+            for (int i = 0 ; i <= strings.length -1 ; i++){
+                strings2[i] = strings[i];
+                System.out.println(i);
+            }
+
+            strings2[strings2.length -1] = "add";
+            System.out.println(strings2.length);
+
+            //arraylist adapteren
+            mainActivity2_list = new MainActivity2_list(this,strings2);
+            listView.setAdapter(mainActivity2_list);
+        } else {
+            strings2 = new String[1];
+            strings2[0] = "add";
+            //arraylist adapteren
+            mainActivity2_list = new MainActivity2_list(this,strings2);
+            listView.setAdapter(mainActivity2_list);
+        }
     }
 }
