@@ -24,8 +24,7 @@ public class Database  extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + DATABASE_table_1 + "(" + Table_1_col_0 + " INTEGER DEFAULT 0 primary key ,"
-                + Table_1_col_1 + " TEXT ," + Table_1_col_2 + " INTEGER default 0 )");
+        db.execSQL("create table " + DATABASE_table_1 + "(" + Table_1_col_0 + " INTEGER DEFAULT 0 " + "primary key ," + Table_1_col_1 + " TEXT ," + Table_1_col_2 + " INTEGER default 0 )");
     }
 
     @Override
@@ -38,9 +37,7 @@ public class Database  extends SQLiteOpenHelper {
         int uit = -1;
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery(
-                "select * from " + DATABASE_table_1, null
-        );
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + DATABASE_table_1, null);
         if (cursor.getCount() == 0) {
             uit = 0;
         } else {
@@ -80,5 +77,50 @@ public class Database  extends SQLiteOpenHelper {
             }
         }
         return uits;
+    }
+
+
+
+    public String getTable_col_1(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String uit = "";
+        Cursor cursor1 =
+                sqLiteDatabase.rawQuery("select " + Table_1_col_1 + " from " + DATABASE_table_1 + " where " + Table_1_col_0 + " == " + id, null);
+        StringBuffer stringBuffer = new StringBuffer();
+        if (cursor1.moveToFirst()) {
+            stringBuffer.append(cursor1.getString(0));
+            uit = stringBuffer.toString();
+        }
+        return uit;
+    }
+
+    public int getTable_col_2(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        int uit = -1;
+        Cursor cursor1 =
+                sqLiteDatabase.rawQuery("select " + Table_1_col_2 + " from " + DATABASE_table_1 + " where " + Table_1_col_0 + " == " + id, null);
+        StringBuffer stringBuffer = new StringBuffer();
+        if (cursor1.moveToFirst()) {
+            stringBuffer.append(cursor1.getString(0));
+            uit = Integer.parseInt(stringBuffer.toString());
+        }
+        return uit;
+    }
+
+    public void minFun(int id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Table_1_col_0,id);
+        contentValues.put(Table_1_col_1,getTable_col_1(id));
+        contentValues.put(Table_1_col_2,getTable_col_2(id) -1);
+        sqLiteDatabase.update(DATABASE_table_1,contentValues,Table_1_col_0 + " == ?", new String[] {id +""});
+    }
+    public void plusFun(int id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Table_1_col_0,id);
+        contentValues.put(Table_1_col_1,getTable_col_1(id));
+        contentValues.put(Table_1_col_2,getTable_col_2(id) + 1);
+        sqLiteDatabase.update(DATABASE_table_1,contentValues,Table_1_col_0 + " == ?", new String[] {id +""});
     }
 }

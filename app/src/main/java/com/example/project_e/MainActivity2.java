@@ -62,6 +62,8 @@ public class MainActivity2 extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(getApplicationContext(),MainActivity3.class);
+                    System.out.println(position);
+                    intent.putExtra("pos",position);
                     startActivity(intent);
                 }
             }
@@ -71,18 +73,14 @@ public class MainActivity2 extends AppCompatActivity {
     public void addToListview(){
         if (database.namen().length != 0){
             strings = database.namen().clone();
-            System.out.println(strings.length);
 
             strings2 = new String[strings.length + 1];
-            System.out.println(strings2.length);
 
             for (int i = 0 ; i <= strings.length -1 ; i++){
                 strings2[i] = strings[i];
-                System.out.println(i);
             }
 
             strings2[strings2.length -1] = "add";
-            System.out.println(strings2.length);
 
             //arraylist adapteren
             mainActivity2_list = new MainActivity2_list(this,strings2);
