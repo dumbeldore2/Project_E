@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class MainActivity3 extends AppCompatActivity {
 
     //Textview ininten
+    TextView textView1;
     TextView textView3;
     TextView textView4;
     TextView textView5;
@@ -41,6 +42,7 @@ public class MainActivity3 extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.color_1_dark));
 
         //textview conecten
+        textView1 = findViewById(R.id.text1);
         textView3 = findViewById(R.id.text3);
         textView4 = findViewById(R.id.text4);
         textView5 = findViewById(R.id.text5);
@@ -58,6 +60,8 @@ public class MainActivity3 extends AppCompatActivity {
         setText();
         clickFunMin();
         clickFunPlus();
+        setTitle();
+        clickHome();
     }
 
     public void setText(){
@@ -100,5 +104,18 @@ public class MainActivity3 extends AppCompatActivity {
     public void changeBbackgroundToDark(){
         textView5.setBackgroundResource(R.drawable.backgroundma3part3);
         textView5.setTextColor(getResources().getColor(R.color.color_2_light));
+    }
+
+    public void setTitle(){
+        textView1.setText("counter - " + database.getTable_col_1(pos));
+    }
+
+    public void clickHome(){
+        textView1.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity2.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity4 extends AppCompatActivity {
     //Textviews initen
+    TextView textView1;
     TextView textView4;
 
     //database initen
@@ -34,6 +35,7 @@ public class MainActivity4 extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.color_1_dark));
 
         //textview conecteren
+        textView1 = findViewById(R.id.text1);
         textView4 = findViewById(R.id.text4);
 
         //edittext conecten
@@ -44,6 +46,7 @@ public class MainActivity4 extends AppCompatActivity {
 
         //functies
         clickAdd();
+        clickHome();
     }
 
     public void clickAdd(){
@@ -65,5 +68,14 @@ public class MainActivity4 extends AppCompatActivity {
             uit = editText1.getText().toString();
         }
         return uit;
+    }
+
+    public void clickHome(){
+        textView1.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity2.class);
+                startActivity(intent);
+            }
+        });
     }
 }
